@@ -19,6 +19,8 @@ angular.module('myApp.fiel', ['ngRoute'])
   this.errorMessage = "";
   this.progress = 0;
 
+
+
   /*
   */
   this.validatePasswords = function(){
@@ -32,6 +34,26 @@ angular.module('myApp.fiel', ['ngRoute'])
       return true;
   }
 
+  this.onFileSelect = function(evt){
+
+    var reader = new FileReader();
+    console.log(evt);
+    reader.onerror = function(evt){};
+    reader.onprogress = function(evt){};
+    reader.onabort = function(e) {
+      alert('File read cancelled');
+    };
+    reader.onloadstart = function(e) {
+      document.getElementById('progress_bar').className = 'loading';
+    };
+    reader.onload = function(e) {
+
+      setTimeout("document.getElementById('progress_bar').className='';", 2000);
+    }
+    // Read in the image file as a binary string.
+    reader.readAsBinaryString(evt.target.files[0]);
+  };
+
   /**/
   this.changePass = function(){
 
@@ -39,7 +61,7 @@ angular.module('myApp.fiel', ['ngRoute'])
 
       this.prossesing = true;
       this.progress = 0;
-      
+
       for(let index = 1; index <= 10; index ++ ){
 
         setTimeout( () => {
@@ -62,4 +84,13 @@ angular.module('myApp.fiel', ['ngRoute'])
     }
 
   }
+
+  angular.element(document.querySelector('#keyFile')).on('change', function(){
+    console.log("s");
+  });
+
 }]);
+
+ document.getElementById('keyFile').addEventListener('change', function(evt){
+   console.log("a pos hora");
+ }, false);
