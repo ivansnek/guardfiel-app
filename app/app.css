@@ -1,0 +1,17 @@
+/* app css stylesheet */
+body{
+
+  height: 100%;
+  margin: 0;
+  background-color: #009688;
+  color: #fff;
+  text-align: center;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+div.main-panel {
+  color: #000;
+  min-height: 450px;
+  height: 450px;
+}

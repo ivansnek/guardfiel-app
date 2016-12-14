@@ -1,0 +1,46 @@
+<div class="row">
+
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default main-panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Select your  key file</h3>
+      </div>
+      <div class="panel-body">
+        <div class="alert alert-danger" ng-show="fiel.invalidPass" role="alert">{{fiel.errorMessage}}</div>
+
+        <form class="form" action="" >
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="form-group">
+                <label for="">Key File</label>
+                <input type="file" class="form-control" ng-model="fiel.key">
+              </div>
+              <div class="form-group">
+                <label for="">Old Passwod</label>
+                <input type="password" class="form-control" ng-model="fiel.oldPass"
+                 ng-change="fiel.validatePasswords()" placeholder="Old Password">
+              </div>
+
+              <div class="form-group">
+                <label for="">New Passwod</label>
+                <input type="password" class="form-control" ng-model="fiel.newPass"
+                 ng-change="fiel.validatePasswords()" placeholder="Old Password">
+              </div>
+            </div>
+          </div>
+          <div class="progress" ng-show="fiel.prossesing">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+              role="progressbar" aria-valuenow="{{fiel.progress}}" aria-valuemin="0"
+              aria-valuemax="100" style="width: {{fiel.progress}}%">
+              <span class="sr-only">20% Complete</span>
+            </div>
+          </div>
+          <button type="button" name="button" ng-click="fiel.changePass()"
+          class="btn btn-lg btn-info">Change Password</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
